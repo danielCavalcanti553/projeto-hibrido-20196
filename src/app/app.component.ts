@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Sair',
-      url: '/login',
+      url: '/sair',
       icon: 'exit'
     },
     

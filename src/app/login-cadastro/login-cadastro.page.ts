@@ -3,41 +3,34 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MenuController, NavController } from '@ionic/angular';
 
-
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-login-cadastro',
+  templateUrl: './login-cadastro.page.html',
+  styleUrls: ['./login-cadastro.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class LoginCadastroPage implements OnInit {
 
   formGroup : FormGroup; 
 
   constructor(private formB : FormBuilder,
     private navCtrl : NavController,
-    private menuCtrl : MenuController,
     private auth : AngularFireAuth) {
-    
-    this.menuCtrl.enable(false);
-    this.iniciarForm();
-  }
+      this.iniciarForm();
+    }
 
   ngOnInit() {
   }
 
-  logar(){
+  cadastro(){
 
     let user = this.formGroup.controls['username'].value;
     let password = this.formGroup.controls['password'].value;
 
-    this.auth.signInWithEmailAndPassword(user,password).then(data=>{
-      this.navCtrl.navigateRoot(['/home']);
+    this.auth.createUserWithEmailAndPassword(user,password).then(data=>{
+      this.navCtrl.navigateRoot(['/login']);
     }).catch(err=>{
-      console.log("Login incorreto");
+      console.log("Erro ao cadastrar");
     })
-
-
-    
   }
 
   iniciarForm(){
@@ -45,10 +38,6 @@ export class LoginPage implements OnInit {
       username : ['', [Validators.required,Validators.email]],
       password : ['', [Validators.required, Validators.minLength(6)]]
     })
-  }
-
-  paginaCadastro(){
-    this.navCtrl.navigateForward(['/login-cadastro']);
   }
 
 }
