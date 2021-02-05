@@ -23,6 +23,16 @@ export class AppComponent implements OnInit {
       icon: 'person-circle'
     },
     {
+      title: 'Cadastro de Clientes',
+      url: '/cliente-cadastro',
+      icon: 'person-circle'
+    },
+    {
+      title: 'Lista de Clientes',
+      url: '/cliente-lista',
+      icon: 'person-circle'
+    },
+    {
       title: 'Sair',
       url: '/sair',
       icon: 'exit'

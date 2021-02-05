@@ -11,6 +11,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from 'src/environments/environment';
 import { HttpClientModule } from '@angular/common/http';
+import { TemplateService } from './service/template.service';
+import { ClienteService } from './service/cliente.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,7 +29,9 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    TemplateService,
+    ClienteService
   ],
   bootstrap: [AppComponent]
 })
