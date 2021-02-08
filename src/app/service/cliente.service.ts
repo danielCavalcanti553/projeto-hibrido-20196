@@ -81,8 +81,18 @@ export class ClienteService{
                 observe.next("Erro ao atualizar");
             })
                     
-        })) 
+        }))
 
     }
 
+    excluir(id : any): Observable<any>{
+        return from(new Observable(observe=>{ // Converte para Observable
+
+            this.firestore.collection('cliente').doc(id).delete().then(response=>{
+                observe.next("Excluído com sucesso");
+            },err=>{
+                observe.next("Erro ao atualizar");
+            })
+        })) 
+    }
 }

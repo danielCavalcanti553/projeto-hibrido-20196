@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    
+    <ion-title>Recuperar Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="formGroup">
+
+  <ion-list lines="full" class="ion-no-margin">
+
+
+    <ion-item>
+      <ion-label position="floating">E-mail</ion-label>
+      <ion-input type="text" formControlName="username"></ion-input>
+      <p *ngIf="formGroup.controls.username.errors && formGroup.controls.username.dirty">E-mail Inválido</p>
+    </ion-item>
+
+
+  </ion-list>
+
+  <ion-button color="primary" expand="full" (click)="recuperar()" [disabled]="formGroup.invalid">Recupear</ion-button>
+
+
+  </form>
+</ion-content>

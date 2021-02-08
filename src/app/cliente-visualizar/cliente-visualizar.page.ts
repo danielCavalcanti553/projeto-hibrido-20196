@@ -54,4 +54,7 @@ export class ClienteVisualizarPage implements OnInit {
     this.navCtrl.navigateForward(['/cliente-atualizar',this.cliente.id]);
   }
 
+  remover(){
+    this.navCtrl.navigateForward(['/cliente-remove',this.cliente.id]);
+  }
 }

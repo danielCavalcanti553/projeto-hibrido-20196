@@ -1,6 +1,8 @@
 <ion-header>
   <ion-toolbar>
-    
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>Visualizar Cliente</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -62,5 +64,8 @@
   </ion-list>
 
   <ion-button color="primary" expand="full" (click)="atualizar()" [disabled]="formGroup.invalid">Atualizar</ion-button>
-  </form>
+ 
+  <ion-button color="danger" expand="full" (click)="remover()" [disabled]="formGroup.invalid">Excluir</ion-button>
+ 
+</form>
 </ion-content>
